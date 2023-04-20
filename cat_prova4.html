@@ -7,7 +7,7 @@
             width: 401px;
             height: 300px;
         }
-        .img2 {
+        .img2, .img4 {
             margin: -350px 0 0 500px;
         }
         .img3 {
@@ -37,7 +37,7 @@
 	<p>Selecciona la paraula correcta per a cada imatge i en cas de que no hi tinguis la opcio correcta escriula:</p>
 
 	<div class="img1">
-		<img src="gat.jpg" alt="Gat">
+		<img src="https://pixnio.com/free-images/2017/09/26/2017-09-26-07-22-55-400x266.jpg" alt="Gat">
 		<br>
 		<button id="gos" onclick="alert('Incorrecte')">Gos</button>
 		<button id="gat" onclick="alert('Correcte!')">Gat</button>
@@ -45,7 +45,7 @@
 	</div>
 
 	<div class="img2">
-		<img src="cotxe.jpg" alt="Cotxe">
+		<img src="https://1.bp.blogspot.com/-t5hULwof-Oc/T8kn_2Z7EoI/AAAAAAAAADc/RZUqBbYcBx8/s400/4.jpg" alt="Cotxe">
 		<br>
 		<button id="cotxe" onclick="alert('Incorrecte')">Cotxe</button>
 		<button id="avió" onclick="alert('Incorrecte')">Avió</button>
@@ -53,19 +53,19 @@
 	</div>
 
 	<div class="img3">
-		<img src="arbre.jpg" alt="Arbre">
+		<img src="https://th.bing.com/th/id/OIP.JUV2vyAsh-EhqDxAoLrxpgHaFm?pid=ImgDet&w=611&h=462&rs=1" alt="Arbre">
 		<br>
 		<button id="arbre" onclick="alert('Correcte!')">Arbre</button>
 		<button id="flor" onclick="alert('Incorrecte')">Flor</button>
-		<button id="herba" onclick="alert('Incorrecte')">Herba</button>
+		<button id="herba">Herba</button>
 	</div>
 
 	<div class="img4">
-		<img src="ordinador.jpg" alt="Arbre">
+		<img src="https://media.baamboozle.com/uploads/images/11888/1575016804_47178" alt="Ordinador">
 		<br>
-		<button id="arbre" onclick="alert('Correcte!')">Arbre</button>
-		<button id="flor" onclick="alert('Incorrecte')">Flor</button>
-		<button id="herba" onclick="alert('Incorrecte')">Herba</button>
+		<button id="ordinador" onclick="alert('Correcte!')">Ordinador</button>
+		<button id="teclat">Teclat</button>
+		<button id="ordenador" onclick="alert('Incorrecte')">Ordenador</button>
 	</div>
 
 	<script>
@@ -75,11 +75,14 @@
 		document.getElementById("cotxe").textContent = "Automòbil";
 		document.getElementById("avió").textContent = "Aeroplà";
 		document.getElementById("flor").textContent = "Rosa";
+		document.getElementById("ordinador").textContent = "Ordinador";
+		document.getElementById("ordenador").textContent = "Ordenador";
 
 		// Personalitzeu el joc amb les vostres pròpies imatges i paraules
 		document.getElementById("gat").innerHTML = "______";
 		document.getElementById("moto").innerHTML = "______";
 		document.getElementById("herba").innerHTML = "______";
+		document.getElementById("teclat").innerHTML = "______";
 
 		document.getElementById("gat").addEventListener("click", function() {
 			var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
@@ -96,6 +99,22 @@
 				alert("Correcte!");
 			} else {
 				alert("Incorrecte");
+			}
+		});
+		document.getElementById("herba").addEventListener("click", function() {
+			var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+			if (resposta.toLowerCase() == "herba") {
+				alert("Incorrecte, no has de escriure res.");
+			} else {
+				alert("Incorrecte, no has de escriure res.");
+			}
+		});
+		document.getElementById("teclat").addEventListener("click", function() {
+			var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+			if (resposta.toLowerCase() == "teclat") {
+				alert("Incorrecte, no has de escriure res.");
+			} else {
+				alert("Incorrecte, no has de escriure res.");
 			}
 		});
 	</script>
