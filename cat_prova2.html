@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Joc de paraules en català</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(246, 191, 11, 0.396);
+            width: 784px;
+            height: auto;
+            text-align: justify;
+        }
+        h6 {
+            font-size: 15px;
+            margin: -15px 0 10px 0;
+        }
+        h1 {
+            color: #0072C6;
+        }
+        
+        p {
+            font-size: 1.2em;
+        }
+        
+        
+        input[type="text"] {
+            padding: 6px;
+            width: 90px;
+            border-radius: 5px;
+            border: 1px solid #0072C6;
+            background-color: rgb(246 146 11 / 59%);
+        
+        }
+        .a {
+            margin: 0 10px 10px 0;
+        
+        }
+        button {
+            background-color: #0072C6;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #005FAB;
+        }
+        
+        #puntuacio {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Joc de paraules en català</h1>
+    
+    <p>Tradueix les paraules de l'anglès al català:</p>
+    <h6>Tingues en compte els accents</h6>
+    
+    <div id="paraules"></div>
+    
+    <button onclick="comprovarRespostes()">Comprovar</button>
+    
+    <p id="puntuacio"></p>
+
+    <script>
+        // Llista de paraules en anglès i les seves respostes en català
+        var paraules = {
+            "book": "llibre",
+            "house": "casa",
+            "tree": "arbre",
+            "car": "cotxe",
+            "chair": "cadira",
+            "water": "aigua",
+            "sun": "sol",
+            "food": "menjar",
+            "music": "música",
+            "dog": "gos",
+            "yes": "si",
+            "game": "joc",
+            "fier": "foc",
+            "ball": "pilota",
+            "run": "corre"
+        };
+        
+        var puntuacio = 0;
+        
+        // Mostrar les paraules en anglès i caixes per a les respostes
+        for (var paraula in paraules) {
+            document.getElementById("paraules").innerHTML += paraula + ": <input type='text' class='a' id='" + paraula + "'>";
+        }
+        
+        // Comprovar les respostes
+        function comprovarRespostes() {
+            puntuacio = 0;
+            for (var paraula in paraules) {
+                var resposta = document.getElementById(paraula).value;
+                if (resposta.toLowerCase() == paraules[paraula]) {
+                    puntuacio++;
+                }
+            }
+            var puntuacio_final = puntuacio / 14 * 10;
+            puntuacio_final = puntuacio_final.toFixed(2)
+            // Mostrar la puntuació final
+            document.getElementById("puntuacio").innerHTML = "La teva puntuació final és: " + puntuacio_final;
+        }
+    </script>
+</body>
+</html>

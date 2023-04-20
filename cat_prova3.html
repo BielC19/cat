@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Joc de paraules encadenades</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: dimgrey;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 20px;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		.form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+		.form label {
+			margin-right: 10px;
+		}
+		.form input[type="text"] {
+			padding: 5px;
+			font-size: 16px;
+			background-color: rgb(160, 146, 146);
+			border-radius: 5px;
+			border-color: white;
+		}
+		.form input[type="submit"] {
+			padding: 5px 10px;
+			background-color: #246326;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		.form input[type="submit"]:hover {
+			background-color: #3E8E41;
+		}
+		.list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			font-size: 16px;
+			text-align: center;
+			line-height: 1.5;
+		}
+		.list li {
+			margin-bottom: 10px;
+		}
+		.list .correct {
+			color: rgb(160, 241, 144);
+		}
+		.list .incorrect {
+			color: red;
+		}
+		h1, li {
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Joc de paraules encadenades</h1>
+	<div class="container">
+		<form class="form" onsubmit="return checkWord()">
+			<label for="word" style="color: white;">Escriu una paraula que comenci per:</label>
+			<input type="text" id="word" name="word">
+			<input type="submit" value="Comprova">
+		</form>
+		<ul class="list" id="wordList">
+			<li>Paraules encadenades:</li>
+		</ul>
+	</div>
+	<script>
+var lastLetter = '';
+var wordList = document.getElementById('wordList');
+var usedWords = []; // array per a emmagatzemar les paraules introduïdes
+
+function checkWord() {
+    var input = document.getElementById('word');
+    var word = input.value.trim().toLowerCase();
+    if (word.length === 0) {
+        alert('Introdueix una paraula.');
+        return false;
+    }
+    if (lastLetter.length > 0 && word.charAt(0) !== lastLetter) {
+        alert('La paraula ha de començar per la lletra ' + lastLetter.toUpperCase() + '.');
+        return false;
+    }
+    if (usedWords.includes(word)) { // comprovem si la paraula ja s'ha introduït
+        alert('Aquesta paraula ja s\'ha introduït anteriorment.');
+        return false;
+    }
+    var listItem = document.createElement('li');
+    listItem.textContent = word;
+    if (lastLetter.length === 0 || word.charAt(0) === lastLetter) {
+        listItem.className = 'correct';
+        lastLetter = word.charAt(word.length - 1);
+    } else {
+        listItem.className = 'incorrect';
+    }
+    wordList.appendChild(listItem);
+    usedWords.push(word); // afegim la paraula a l'array de paraules utilitzades
+    input.value = '';
+    input.focus();
+    return false;
+}
+
+	</script>
+</body

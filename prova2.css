@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(246, 191, 11, 0.396);
+    width: 784px;
+    height: auto;
+    text-align: justify;
+}
+h6 {
+    font-size: 15px;
+    margin: -15px 0 10px 0;
+}
+h1 {
+    color: #0072C6;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+
+input[type="text"] {
+    padding: 6px;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid #0072C6;
+    background-color: rgb(246 146 11 / 59%);
+
+}
+.a {
+    margin: 0 10px 10px 0;
+
+}
+button {
+    background-color: #0072C6;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005FAB;
+}
+
+#puntuacio {
+    font-weight: bold;
+}

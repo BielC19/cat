@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Joc per aprendre català</title>
+	<style>
+        img {
+            width: 401px;
+            height: 300px;
+        }
+        .img2 {
+            margin: -350px 0 0 500px;
+        }
+        .img3 {
+            margin-top: 40px;
+        }
+        /* Estils per als botons */
+        button {
+			font-size: 16px;
+			padding: 10px 20px;
+			margin: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #0077be;
+			color: #fff;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #005fa3;
+		}
+	</style>
+</head>
+<body>
+	<h1>Joc per aprendre català</h1>
+
+	<p>Selecciona la paraula correcta per a cada imatge i en cas de que no hi tinguis la opcio correcta escriula:</p>
+
+	<div class="img1">
+		<img src="gat.jpg" alt="Gat">
+		<br>
+		<button id="gos" onclick="alert('Incorrecte')">Gos</button>
+		<button id="gat" onclick="alert('Correcte!')">Gat</button>
+		<button id="ocell" onclick="alert('Incorrecte')">Ocell</button>
+	</div>
+
+	<div class="img2">
+		<img src="cotxe.jpg" alt="Cotxe">
+		<br>
+		<button id="cotxe" onclick="alert('Incorrecte')">Cotxe</button>
+		<button id="avió" onclick="alert('Incorrecte')">Avió</button>
+		<button id="moto" onclick="alert('Correcte!')">Moto</button>
+	</div>
+
+	<div class="img3">
+		<img src="arbre.jpg" alt="Arbre">
+		<br>
+		<button id="arbre" onclick="alert('Correcte!')">Arbre</button>
+		<button id="flor" onclick="alert('Incorrecte')">Flor</button>
+		<button id="herba" onclick="alert('Incorrecte')">Herba</button>
+	</div>
+
+	<script>
+		// Canvieu el text dels botons
+		document.getElementById("gos").textContent = "Gos";
+		document.getElementById("ocell").textContent = "Pardal";
+		document.getElementById("cotxe").textContent = "Automòbil";
+		document.getElementById("avió").textContent = "Aeroplà";
+		document.getElementById("flor").textContent = "Rosa";
+
+		// Personalitzeu el joc amb les vostres pròpies imatges i paraules
+		document.getElementById("gat").innerHTML = "______";
+		document.getElementById("moto").innerHTML = "______";
+		document.getElementById("herba").innerHTML = "______";
+
+		document.getElementById("gat").addEventListener("click", function() {
+			var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+			if (resposta.toLowerCase() == "gat") {
+				alert("Correcte!");
+			} else {
+				alert("Incorrecte");
+			}
+		});
+
+		document.getElementById("moto").addEventListener("click", function() {
+			var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+			if (resposta.toLowerCase() == "moto") {
+				alert("Correcte!");
+			} else {
+				alert("Incorrecte");
+			}
+		});
+	</script>
+</body>
+</html>
