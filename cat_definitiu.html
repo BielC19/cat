@@ -2,5 +2,45 @@
 <html>
     <head>
         <Title>Jocs per apendre catala Enzo i Biel</Title>
+        <style>
+            /* Estils CSS per mostrar només la pàgina actual */
+            .page {
+                display: none;
+            }
+            .page.current {
+                display: block;
+            }
+        </style>
     </head>
+    <body>
+        <!-- Contingut de la primera pàgina -->
+        <div class="page current" id="page1">
+            <h1>Pàgina 1</h1>
+            <h1>Jocs per apendre catala de manera facil</h1>
+            <p>Aquests jos son la part practica del projecre de reserca de Catala</p>
+            <h6>Aquest projecte esta fet per l'Enzo i el Biel</h6>
+        </div>
+        <!-- Contingut de la segona pàgina -->
+        <div class="page" id="page2">
+            <h1>Pàgina 2</h1>
+            <p>Aquí tens el contingut de la segona pàgina.</p>
+        </div>
+        <!-- Botons per canviar de pàgina -->
+        <button onclick="mostraPagina(1)">Pàgina 1</button>
+        <button onclick="mostraPagina(2)">Pàgina 2</button>
+        
+        <!-- Script per canviar de pàgina -->
+        <script>
+            function mostraPagina(num) {
+            // Oculta totes les pàgines
+            var pags = document.getElementsByClassName("page");
+            for (var i = 0; i < pags.length; i++) {
+            pags[i].classList.remove("current");
+            }
+            // Mostra només la pàgina desitjada
+            var pagActual = document.getElementById("page" + num);
+            pagActual.classList.add("current");
+            }
+        </script>
+    </body>
 </html>
