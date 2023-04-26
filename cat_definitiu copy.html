@@ -3,30 +3,18 @@
     <head>
         <Title>Jocs per apendre catala Enzo i Biel</Title>
         <style>
-            /* Estils CSS per mostrar només la pàgina actual */
-            .page {
-                display: none;
-            }
-            .page.current {
-                display: block;
-            }
-            #page3 {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: dimgrey;
-                }
+
         </style>
     </head>
     <body>
         <!-- Contingut de la primera pàgina -->
-        <div class="page current" id="page1">
+        <selection id="page1">
             <h1>Jocs per apendre catala de manera facil</h1>
             <p>Aquests jos son la part practica del projecre de reserca de Catala</p>
             <h6>Aquest projecte esta fet per l'Enzo i el Biel</h6>
-        </div>
+        </selection>
         <!-- Contingut de la segona pàgina -->
-        <div class="page" id="page2">
+        <selection id="page2">
             <h3>Aqui hi ha el primer joc per apendre Catala</h3>
             <style>
                 #body_primerjoc {
@@ -132,8 +120,8 @@
                     }
                 </script>
             </div>
-        </div>
-        <div class="page" id="page3">
+        </selection>
+        <selection id="page3">
             <style>
                 .body_j2, #page3 {
                     font-family: Arial, sans-serif;
@@ -248,24 +236,19 @@
                         }
                 </script>
                 </div>
-        </div>
+        </selection>
         <!-- Botons per canviar de pàgina -->
-        <button onclick="mostraPagina(1)">Pàgina 1</button>
-        <button onclick="mostraPagina(2)">Pàgina 2</button>
-        <button onclick="mostraPagina(3)">Pàgina 3</button>
-        
+        <nav>
+            <ul>
+                <li><a href="#page1">Sección 1</a></li>
+                <li><a href="#page2">Sección 2</a></li>
+            </ul>
+            </nav>
         <!-- Script per canviar de pàgina -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollspy/0.3.2/scrollspy.min.js"></script>
         <script>
-            function mostraPagina(num) {
-            // Oculta totes les pàgines
-            var pags = document.getElementsByClassName("page");
-            for (var i = 0; i < pags.length; i++) {
-            pags[i].classList.remove("current");
-            }
-            // Mostra només la pàgina desitjada
-            var pagActual = document.getElementById("page" + num);
-            pagActual.classList.add("current");
-            }
+            $('body').scrollspy({ target: '#navbar' });
         </script>
     </body>
 </html>
