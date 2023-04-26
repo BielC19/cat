@@ -3,18 +3,30 @@
     <head>
         <Title>Jocs per apendre catala Enzo i Biel</Title>
         <style>
-
+            .page {
+                display: none;
+            }
+            .page.active {
+                display: block;
+            }
         </style>
     </head>
     <body>
+        <nav>
+            <li><a href="#page1">Inici</a></li>
+            <li><a href="#page2">Primer joc</a></li>
+            <li><a href="#page3">Segon joc</a></li>
+            <li><a href="#page4">Tercer joc</a></li>
+        </nav>
+    
         <!-- Contingut de la primera pàgina -->
-        <selection id="page1">
+        <div id="page1" class="page active">
             <h1>Jocs per apendre catala de manera facil</h1>
             <p>Aquests jos son la part practica del projecre de reserca de Catala</p>
             <h6>Aquest projecte esta fet per l'Enzo i el Biel</h6>
-        </selection>
+        </div>
         <!-- Contingut de la segona pàgina -->
-        <selection id="page2">
+        <div id="page2" class="page">
             <h3>Aqui hi ha el primer joc per apendre Catala</h3>
             <style>
                 #body_primerjoc {
@@ -120,8 +132,8 @@
                     }
                 </script>
             </div>
-        </selection>
-        <selection id="page3">
+        </div>
+        <div id="page3" class="page">
             <style>
                 .body_j2, #page3 {
                     font-family: Arial, sans-serif;
@@ -236,19 +248,143 @@
                         }
                 </script>
                 </div>
-        </selection>
-        <!-- Botons per canviar de pàgina -->
-        <nav>
-            <ul>
-                <li><a href="#page1">Sección 1</a></li>
-                <li><a href="#page2">Sección 2</a></li>
-            </ul>
-            </nav>
-        <!-- Script per canviar de pàgina -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollspy/0.3.2/scrollspy.min.js"></script>
+        </div>
+        <div id="page4" class="page">
+            <style>
+                img {
+                    width: 401px;
+                    height: 300px;
+                }
+                .img2, .img4 {
+                    margin: -350px 0 0 500px;
+                }
+                .img3 {
+                    margin-top: 40px;
+                }
+                /* Estils per als botons */
+                .button_j3 {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #0077be;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+        
+                .button_j3:hover {
+                    background-color: #005fa3;
+                }
+            </style>
+            <body class="body_j3">
+                <h1>Joc per aprendre català</h1>
+            
+                <p>Selecciona la paraula correcta per a cada imatge i en cas de que no hi tinguis la opcio correcta escriula:</p>
+            
+                <div class="img1">
+                    <img src="https://c1.wallpaperflare.com/preview/340/998/325/cat-red-cute-mackerel-thumbnail.jpg" alt="Gat">
+                    <br>
+                    <button class="button_j3" id="gos" onclick="alert('Incorrecte')">Gos</button>
+                    <button class="button_j3" id="gat" onclick="alert('Correcte!')">Gat</button>
+                    <button class="button_j3" id="ocell" onclick="alert('Incorrecte')">Ocell</button>
+                </div>
+            
+                <div class="img2">
+                    <img src="https://1.bp.blogspot.com/-t5hULwof-Oc/T8kn_2Z7EoI/AAAAAAAAADc/RZUqBbYcBx8/s400/4.jpg" alt="Cotxe">
+                    <br>
+                    <button class="button_j3" id="cotxe" onclick="alert('Incorrecte')">Cotxe</button>
+                    <button class="button_j3" id="avió" onclick="alert('Incorrecte')">Avió</button>
+                    <button class="button_j3" id="moto" onclick="alert('Correcte!')">Moto</button>
+                </div>
+            
+                <div class="img3">
+                    <img src="https://th.bing.com/th/id/OIP.JUV2vyAsh-EhqDxAoLrxpgHaFm?pid=ImgDet&w=611&h=462&rs=1" alt="Arbre">
+                    <br>
+                    <button class="button_j3" id="arbre" onclick="alert('Correcte!')">Arbre</button>
+                    <button class="button_j3" id="flor" onclick="alert('Incorrecte')">Flor</button>
+                    <button class="button_j3" id="herba">Herba</button>
+                </div>
+            
+                <div class="img4">
+                    <img src="https://media.baamboozle.com/uploads/images/11888/1575016804_47178" alt="Ordinador">
+                    <br>
+                    <button class="button_j3" id="ordinador" onclick="alert('Correcte!')">Ordinador</button>
+                    <button class="button_j3" id="teclat">Teclat</button>
+                    <button class="button_j3" id="ordenador" onclick="alert('Incorrecte')">Ordenador</button>
+                </div>
+            
+                <script>
+                    // Canvieu el text dels botons
+                    document.getElementById("gos").textContent = "Gos";
+                    document.getElementById("ocell").textContent = "Pardal";
+                    document.getElementById("cotxe").textContent = "Automòbil";
+                    document.getElementById("avió").textContent = "Aeroplà";
+                    document.getElementById("flor").textContent = "Rosa";
+                    document.getElementById("ordinador").textContent = "Ordinador";
+                    document.getElementById("ordenador").textContent = "Ordenador";
+            
+                    // Personalitzeu el joc amb les vostres pròpies imatges i paraules
+                    document.getElementById("gat").innerHTML = "______";
+                    document.getElementById("moto").innerHTML = "______";
+                    document.getElementById("herba").innerHTML = "______";
+                    document.getElementById("teclat").innerHTML = "______";
+            
+                    document.getElementById("gat").addEventListener("click", function() {
+                        var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+                        if (resposta.toLowerCase() == "gat") {
+                            alert("Correcte!");
+                        } else {
+                            alert("Incorrecte");
+                        }
+                    });
+            
+                    document.getElementById("moto").addEventListener("click", function() {
+                        var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+                        if (resposta.toLowerCase() == "moto") {
+                            alert("Correcte!");
+                        } else {
+                            alert("Incorrecte");
+                        }
+                    });
+                    document.getElementById("herba").addEventListener("click", function() {
+                        var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+                        if (resposta.toLowerCase() == "herba") {
+                            alert("Incorrecte, no has de escriure res.");
+                        } else {
+                            alert("Incorrecte, no has de escriure res.");
+                        }
+                    });
+                    document.getElementById("teclat").addEventListener("click", function() {
+                        var resposta = prompt("Escriu la paraula correcta per a aquesta imatge:");
+                        if (resposta.toLowerCase() == "teclat") {
+                            alert("Incorrecte, no has de escriure res.");
+                        } else {
+                            alert("Incorrecte, no has de escriure res.");
+                        }
+                    });
+                </script>
+            </body>
+        </div>
         <script>
-            $('body').scrollspy({ target: '#navbar' });
+            var links = document.querySelectorAll('nav a');
+            var pages = document.querySelectorAll('.page');
+    
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+    
+                    for (var j = 0; j < pages.length; j++) {
+                        pages[j].classList.remove('active');
+                    }
+    
+                    var href = this.getAttribute('href');
+                    var page = document.querySelector(href);
+    
+                    page.classList.add('active');
+                });
+            }
         </script>
     </body>
 </html>
