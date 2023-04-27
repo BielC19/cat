@@ -2,144 +2,45 @@
 <html>
     <head>
         <Title>Jocs per apendre catala Enzo i Biel</Title>
+        <script>
+            function mostrarApartat(id) {
+                // oculta tots els apartats
+                var apartats = document.getElementsByClassName("page");
+                for (var i = 0; i < apartats.length; i++) {
+                    apartats[i].style.display = "none";
+                }
+                // mostra l'apartat seleccionat
+                document.getElementById(id).style.display = "block";
+                document.getElementById("page1").style.display = "block";
+            }
+        </script>
         <style>
-            .page {
-                display: none;
+            body, .body_j2, .button_j1, .button_j3 {
+                background-color: #0077be;
             }
-            .page.active {
-                display: block;
-            }
-            #navbar-button {
-            border: 0;
-            padding: 0;
-            cursor: pointer;
-            }
-            .burger {
-                z-index: 3;
-                top: 0;
-                left: 0;
-                display: grid;
-                place-items: center;
-                width: 88px;
-                height: 88px;
-                background-image: url("https://th.bing.com/th/id/OIP.mkOa9-xN1GM1Na0NHPRHHgAAAA?pid=ImgDet&w=58&h=58&c=7");
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-            .burger, .menu {
-                position: fixed;
-            }
-            menu {
-                z-index: 2;
-                top: 0;
-                left: 0;
-                display: grid;
-                place-items: center;
-                width: 400px;
-                height: 100%;
-                background: #07030a;
-                translate: -100% 0;
-                transition: translate 0.375s cubic-bezier(0.175, 0.885, 0.32, 1);
-            }
-            .menu nav { 
-                opacity: 0;
-            }
-            .menu nav:hover a {
-                opacity: 0.25;
-            }
-            .menu nav a:hover {
-                opacity: 1;
-            }
-            .menu nav {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            .menu a {
-                position: relative;
-                color: #f9f9f9;
-                font-size: 32px;
-                padding: 20px 0;
-                width: 300px;
-                text-decoration: none;
-            }
-            .menu a,
-            .menu a::before,
-            .menu a::after {
-                transition: 0.4s;
-            }
-            .menu a::before,
-            .menu a::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 10px;
-                width: 100%;
-                height: 2px;
-                border-radius: 2px;
-            }
-            .menu a::before {
-                opacity: 0;
-                background: rgb(255 255 255 / 20%);
-            }
-            .menu a::after {
-                transform: scaleX(0);
-                transform-origin: 0% 50%;
-                background: #f7f7f7;
-            }
-            .menu a:hover::before {
-                opacity: 1;
-            }
-            .menu a:hover::after {
-                transform: scaleX(1);
-            }
-            .body .open .menu {
-                opacity: 1;
-                visibility: visible;
-                translate: 0;
-                animation: menu-in 0.375s;
-            }
-            body.open menu nav { opacity: 1; }
-            body .open .burger {
-                background-image: url("close.svg");
-            }
-            body.open .menu a {
-                animation: appear 0.25s backwards;
-            }
-            @keyframes menu-in {
-                0% {
-                    clip-path: ellipse(60% 60% at 0% 50%);
-                }
-                100% {
-                    clip-path: ellipse(120% 120% at 0% 50%);
-                }
-            }
-            @keyframes appear {
-                0% { opacity: 0; translate: -30px 0; }
-                100% { opacity: 1; }
+            #page1  {
+                margin-top: -70px;
             }
         </style>
     </head>
     <body>
-        <button id="navbar-button" class="burger" onclick="toggleMenu()"></button>
-        <div class="menu">
-            <nav>
-                <a href="#page1" style="animation-delay: 0.2s;">Inici</a>
-                <a href="#page2" style="animation-delay: 0.3s;">Primer joc</a>
-                <a href="#page3" style="animation-delay: 0.4s;">Segon joc</a>
-                <a href="#page4" style="animation-delay: 0.5s;">Tercer joc</a>
-            </nav>
+
+        <nav>
+            <button onclick="mostrarApartat('page1')">Inici</button>
+            <button onclick="mostrarApartat('page2')">Primer joc</button>
+            <button onclick="mostrarApartat('page3')">Segon joc</button>
+            <button onclick="mostrarApartat('page4')">Tercer joc</button>
+        </nav>
         </div>
         <br><br><br><br>
         <!-- Contingut de la primera pàgina -->
-        <div id="page1" class="page active">
+        <div id="page1" class="page">
             <h1>Jocs per apendre catala de manera facil</h1>
             <p>Aquests jos son la part practica del projecre de reserca de Catala</p>
             <h6>Aquest projecte esta fet per l'Enzo i el Biel</h6>
         </div>
         <!-- Contingut de la segona pàgina -->
-        <div id="page2" class="page">
+        <div id="page2" class="page" style="display: none;">
             <h3>Aqui hi ha el primer joc per apendre Catala</h3>
             <style>
                 #body_primerjoc {
@@ -246,7 +147,7 @@
                 </script>
             </div>
         </div>
-        <div id="page3" class="page">
+        <div id="page3" class="page" style="display: none;">
             <style>
                 .body_j2, #page3 {
                     font-family: Arial, sans-serif;
@@ -362,7 +263,7 @@
                 </script>
                 </div>
         </div>
-        <div id="page4" class="page">
+        <div id="page4" class="page" style="display: none;">
             <style>
                 img {
                     width: 401px;
@@ -480,27 +381,5 @@
                 </script>
             </body>
         </div>
-        <script type="text/javascript">
-            const toggleMenu = () => document.body.classList.toggle("open");
-        </script>
-        <script>
-            var links = document.querySelectorAll('nav a');
-            var pages = document.querySelectorAll('.page');
-    
-            for (var i = 0; i < links.length; i++) {
-                links[i].addEventListener('click', function(e) {
-                    e.preventDefault();
-    
-                    for (var j = 0; j < pages.length; j++) {
-                        pages[j].classList.remove('active');
-                    }
-    
-                    var href = this.getAttribute('href');
-                    var page = document.querySelector(href);
-    
-                    page.classList.add('active');
-                });
-            }
-        </script>
     </body>
 </html>
